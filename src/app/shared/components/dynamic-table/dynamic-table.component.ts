@@ -15,11 +15,11 @@ export class DynamicTableComponent implements OnInit {
   }
 
   selectAll(ev: Event) {
-    this.data.forEach((item: DeviceExecutableFiles) => item.state = (<HTMLInputElement>ev.target).checked);
-  }
-
-  isAllSelected() {
-    return this.data.every((item: DeviceExecutableFiles) => item.state as boolean);
+    this.data.forEach((item: DeviceExecutableFiles) => {
+      if (item.status === 'available') {
+        item.state = (<HTMLInputElement>ev.target).checked;
+      }
+    });
   }
 
   get itemsSelected(): number {

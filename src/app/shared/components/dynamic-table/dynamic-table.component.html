@@ -1,6 +1,6 @@
 <div class="table-wrapper">
     <div>
-        <input type="checkbox" [checked]="isAllSelected()" (change)="selectAll($event)" />
+        <input type="checkbox" [checked]="itemsSelected" (change)="selectAll($event)" />
         <span *ngIf="itemsSelected">Selected {{itemsSelected}}</span>
         <span *ngIf="!itemsSelected">None Selected</span>
 
