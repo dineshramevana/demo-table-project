@@ -21,4 +21,8 @@ export class DynamicTableComponent implements OnInit {
   isAllSelected() {
     return this.data.every((item: DeviceExecutableFiles) => item.state as boolean);
   }
+
+  get itemsSelected(): number {
+    return this.data.filter((x) => x.state).length;
+  }
 }
