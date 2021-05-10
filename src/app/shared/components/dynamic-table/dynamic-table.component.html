@@ -3,7 +3,9 @@
         <input type="checkbox" [checked]="itemsSelected" (change)="selectAll($event)" />
         <span *ngIf="itemsSelected">Selected {{itemsSelected}}</span>
         <span *ngIf="!itemsSelected">None Selected</span>
-
+        <span (click)="download()">
+            <i class="fa fa-download"></i>Download Selected
+        </span>
     </div>
     <table class="table pd-b-5">
         <thead>
@@ -23,7 +25,7 @@
                 <td>{{item.name}}</td>
                 <td>{{item.device}}</td>
                 <td>{{item.path}}</td>
-                <td>{{item.status}}</td>
+                <td><i *ngIf="item.status === 'available'" class="fa fa-circle green"></i>{{item.status}}</td>
             </tr>
     </table>
 </div>

@@ -14,12 +14,17 @@ export class DynamicTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectAll(ev: Event) {
+  selectAll(ev: Event): void {
     this.data.forEach((item: DeviceExecutableFiles) => {
       if (item.status === 'available') {
         item.state = (<HTMLInputElement>ev.target).checked;
       }
     });
+  }
+
+  download(): void {
+    const selected = this.data.filter((x) => x.state);
+    alert(JSON.stringify(selected));
   }
 
   get itemsSelected(): number {
