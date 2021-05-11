@@ -23,7 +23,7 @@ export class DynamicTableComponent implements OnInit {
   }
 
   download(): void {
-    const selected = this.data.filter((x) => x.state);
+    const selected = this.data.filter(x => x.state).map(({ device, path }) => ({device, path}));
     window.alert(JSON.stringify(selected));
   }
 
@@ -33,6 +33,6 @@ export class DynamicTableComponent implements OnInit {
   }
 
   get itemsSelected(): number {
-    return this.data && this.data.filter((x) => x.state).length;
+    return this.data && this.data.filter(item => item.state).length;
   }
 }

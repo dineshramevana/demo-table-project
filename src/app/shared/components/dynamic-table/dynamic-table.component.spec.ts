@@ -48,7 +48,7 @@ describe('DynamicTableComponent', () => {
   it('should show open alert when download is clicked', () => {
     const spy = spyOn(window, 'alert');
     component.download();
-    const selected = component.data.filter(x => x.state);
+    const selected = component.data.filter(x => x.state).map(({ device, path }) => ({device, path}));
     const selectedString = JSON.stringify(selected);
     expect(spy).toHaveBeenCalledWith(selectedString);
   });

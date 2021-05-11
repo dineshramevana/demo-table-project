@@ -33,7 +33,7 @@
             }
             tbody tr {
                 &:hover {
-                    background-color: $lightslategray;
+                    background-color: $lightslategray !important;
                   }
                 &.selected {
                     background-color: $lightgray;
